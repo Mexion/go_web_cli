@@ -53,7 +53,7 @@ func Init() (err error) {
 	viper.SetConfigFile("./config.yaml")
 	// viper.setConfigName("config")
 	// viper.setConfigType(".")	// Dedicated to remote configuration center to read configuration files
-	//viper.AddConfigPath(".")
+	// viper.AddConfigPath(".")
 
 	// start to read config
 	err = viper.ReadInConfig()
