@@ -2,8 +2,8 @@ package mysql
 
 import (
 	"fmt"
+	"go_web_cli/settings"
 
-	"github.com/spf13/viper"
 	"go.uber.org/zap"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -13,14 +13,14 @@ import (
 // declare a global mdb variable
 var db *sqlx.DB
 
-func Init() (err error) {
+func Init(cfg *settings.MySQLConfig) (err error) {
 	// get the db serve name from config
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True",
-		viper.GetString("mysql.user"),
-		viper.GetString("mysql.password"),
-		viper.GetString("mysql.host"),
-		viper.GetInt("mysql.port"),
-		viper.GetString("mysql.dbname"),
+		cfg.User,
+		cfg.Password,
+		cfg.Host,
+		cfg.Port,
+		cfg.DbName,
 	)
 	// connect db
 	// or use MustConnect to panic if the connection is unsuccessful
@@ -29,8 +29,8 @@ func Init() (err error) {
 		zap.L().Error("connect DB failed", zap.Error(err))
 		return
 	}
-	db.SetMaxOpenConns(viper.GetInt("mysql.max_open_conns"))
-	db.SetMaxIdleConns(viper.GetInt("mysql.max_idle_conns"))
+	db.SetMaxOpenConns(cfg.MaxOpenConns)
+	db.SetMaxIdleConns(cfg.MaxIdleConns)
 	return
 }
 

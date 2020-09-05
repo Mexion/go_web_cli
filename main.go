@@ -27,7 +27,7 @@ func main() {
 	}
 
 	// 2. init log
-	if err := logger.Init(); err != nil {
+	if err := logger.Init(settings.Conf.LogConfig); err != nil {
 		fmt.Printf("init logger failed, err: %v\n", err)
 		return
 	}
@@ -35,7 +35,7 @@ func main() {
 	defer zap.L().Sync()
 
 	// 3. init mysql
-	if err := mysql.Init(); err != nil {
+	if err := mysql.Init(settings.Conf.MySQLConfig); err != nil {
 		fmt.Printf("init mysql failed, err: %v\n", err)
 		return
 	}
@@ -44,7 +44,7 @@ func main() {
 	defer mysql.Close()
 
 	// 4. init redis
-	if err := redis.Init(); err != nil {
+	if err := redis.Init(settings.Conf.RedisConfig); err != nil {
 		fmt.Printf("init redis failed, err: %v\n", err)
 		return
 	}

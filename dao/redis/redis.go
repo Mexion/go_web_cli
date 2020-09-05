@@ -2,24 +2,24 @@ package redis
 
 import (
 	"fmt"
+	"go_web_cli/settings"
 
 	"github.com/go-redis/redis"
-	"github.com/spf13/viper"
 )
 
 // declare a global rdb variable
 var rdb *redis.Client
 
 // Init connection
-func Init() (err error) {
+func Init(cfg *settings.RedisConfig) (err error) {
 	rdb = redis.NewClient(&redis.Options{
 		Addr: fmt.Sprintf("%s:%d",
-			viper.GetString("redis.host"),
-			viper.GetInt("redis.port"),
+			cfg.Host,
+			cfg.Port,
 		),
-		Password: viper.GetString("redis.password"), // no password set
-		DB:       viper.GetInt("redis.db"),          // use default DB
-		PoolSize: viper.GetInt("redis.pool_size"),
+		Password: cfg.Password, // no password set
+		DB:       cfg.DB,       // use default DB
+		PoolSize: cfg.PoolSize,
 	})
 
 	_, err = rdb.Ping().Result()
