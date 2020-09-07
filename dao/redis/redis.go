@@ -2,7 +2,7 @@ package redis
 
 import (
 	"fmt"
-	"go_web_cli/settings"
+	"go_web_scaffold/settings"
 
 	"github.com/go-redis/redis"
 )

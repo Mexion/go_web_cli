@@ -1,4 +1,4 @@
-module go_web_cli
+module go_web_scaffold
 
 go 1.14
 

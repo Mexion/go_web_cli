@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"go_web_cli/settings"
+	"go_web_scaffold/settings"
 	"net"
 	"net/http"
 	"net/http/httputil"

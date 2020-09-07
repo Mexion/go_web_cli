@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"go_web_cli/logger"
+	"go_web_scaffold/logger"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

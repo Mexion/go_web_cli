@@ -1,1 +1,1 @@
-# go_web_cli
+# go_web_scaffold

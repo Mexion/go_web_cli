@@ -2,7 +2,7 @@ package mysql
 
 import (
 	"fmt"
-	"go_web_cli/settings"
+	"go_web_scaffold/settings"
 
 	"go.uber.org/zap"
 
