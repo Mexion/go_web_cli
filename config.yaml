@@ -21,6 +21,6 @@ mysql:
 redis:
   host: "127.0.0.1"
   port: 6379
-  password: "mysql1234"
+  password: "redis1234"
   db: 0
   pool_size: 100
