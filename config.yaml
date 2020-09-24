@@ -16,7 +16,7 @@ mysql:
   port: 3306
   user: "root"
   password: "root1234"
-  abname: "sql_demo"
+  dbname: "sql_demo"
 
 redis:
   host: "127.0.0.1"
