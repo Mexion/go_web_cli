@@ -32,7 +32,7 @@ func main() {
 	}
 	// Refresh all buffered logs synchronously
 	defer func() {
-		_ := zap.L().Sync()
+		_ = zap.L().Sync()
 	}()
 
 	// 3. init mysql
