@@ -1,8 +1,7 @@
-app:
-  name: "go_web_scaffold"
-  mode: "dev"
-  port: 8081
-  version: "v0.1.1"
+name: "go_web_scaffold"
+mode: "dev"
+port: 8081
+version: "v0.1.1"
 
 log:
   level: "debug"
